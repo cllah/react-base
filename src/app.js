@@ -1,2 +1,4 @@
 import './app.scss';
-console.log("app1");
+import moment from 'moment';
+console.log(moment().format('YYYY-MM-DD'));
+console.log("app2");
