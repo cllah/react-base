@@ -1,4 +1,9 @@
-import './app.scss';
-import moment from 'moment';
-console.log(moment().format('YYYY-MM-DD'));
-console.log("app2");
+import React from 'react';
+import ReactDOM from 'react-dom'
+import {Home} from '@pages/home'
+
+
+ReactDOM.render(
+  <Home name="EDong" company="ydj" />,
+  document.getElementById('app')
+);
