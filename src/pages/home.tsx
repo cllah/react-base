@@ -1,16 +1,19 @@
-import * as React from "react"
+import React from 'react'
+import { useDispatch, useMappedState } from 'redux-react-hook'
+import actions from '@redux/actions'
+const {
+  incr
+} = actions
 
-export interface HomeProps {
-  name: string
-  company: string
-}
-
-export class Home extends React.Component<HomeProps, {}> {
-  render() {
-    return (
-      <h1>
-        Hello, I am {this.props.name}, I in {this.props.company} now!
-      </h1>
-    )
-  }
+export default function Home () {
+  const {num}= useMappedState(state => ({num:state.home.num}));
+  const dispatch = useDispatch()
+  const inc = () => dispatch(incr())
+  
+  return (
+    <h1>
+        Hello,{num} 
+      <button onClick={inc}>+</button>
+    </h1>
+  )
 }

@@ -13,8 +13,12 @@
     "dev": "webpack-dev-server --config build/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.pro.js",
     "dll": "webpack --config build/webpack.dll.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint 'src/**/*.{ts,js,tsx,jsx}' --fix"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "browserslist": [
     "last 5 version",
     "> 1%",
@@ -28,13 +32,23 @@
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "@types/react": "^16.9.1",
+    "@types/react": "^16.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
     "add-asset-html-webpack-plugin": "^3.1.3",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-plugin-standard": "^4.0.1",
     "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.8.0",
@@ -42,17 +56,23 @@
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "pre-commit": "^1.2.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "sass-loader": "^7.2.0",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.5.5"
+    "@babel/runtime": "^7.5.5",
+    "immutable": "^4.0.0-rc.12",
+    "redux": "^4.0.4",
+    "redux-react-hook": "^3.3.2",
+    "redux-saga": "^1.1.1"
   }
 }

@@ -6,7 +6,7 @@ module.exports = merge(config, {
 	mode: 'development',
 	devServer:{
 		contentBase:'../dist',
-		port:8080,
+		port:3000,
 		compress:true,// 服务器压缩
 		open:true,// 自动打开浏览器
 		hot:true//热更新

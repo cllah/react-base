@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 const config = {
-	entry: './src/app.js', //入口文件
+	entry: './src/app.tsx', //入口文件
 	output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].js'
@@ -15,7 +15,7 @@ const config = {
 		extensions: [".ts", ".tsx", ".js", ".jsx", ".scss", ".json", ".css"],
 		alias: {
 			"@": path.resolve(__dirname, "../src"),
-			"@public": path.resolve(__dirname, "../src"),
+			"@public": path.resolve(__dirname, "../src/public"),
 			"@pages": path.join(__dirname, "../src/pages"),
 			"@router": path.join(__dirname, "../src/router"),
 			"@components": path.join(__dirname, "../src/components"),
