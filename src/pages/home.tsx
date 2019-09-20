@@ -6,13 +6,13 @@ const {
 } = actions
 
 export default function Home () {
-  const { num } = useMappedState(state => ({ num: state.home.num }))
+  const { list } = useMappedState(state => ({ list: state.home.get('list').get(0) }))
   const dispatch = useDispatch()
   const inc = () => dispatch(incr())
-
+  console.log('home')
   return (
     <h1>
-        Hello,{num}
+        Hello,{list}
       <button onClick={inc}>+</button>
     </h1>
   )

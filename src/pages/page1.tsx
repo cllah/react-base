@@ -1,27 +1,28 @@
 import React from 'react'
-import { take, call, takeLatest, put } from 'redux-saga/effects'
+import { take, call, takeLatest, put,delay } from 'redux-saga/effects'
 import useSaga from '@/components/customHooks/useSaga'
-
-function * fakeFetch (url) {
-  yield new Promise(resolve => setTimeout(resolve, 3000))
+let i = 1;
+function* fakeFetch (url) {
   yield put({ type: 'SUCCEEDED' })
-  return url
+  return url + i++;
 };
 
-const dddd = async () => {
-  await new Promise(resolve => setTimeout(resolve, 300))
-  console.log('dddd')
+function* dddd (setter) {
+  yield delay(1000)
+  yield call(setter, preState=>{
+    console.log(preState)
+    return "sss"
+  })
 }
 
 const rootSaga = function * (setter) {
-  while (true) {
-    yield takeLatest('SUCCEEDED', dddd)
-    const { url } = yield take('INCREMENT')
-    const result = yield call(fakeFetch, url)
-    yield call(setter, result)
-  }
+    yield takeLatest('SUCCEEDED', dddd,setter)
+    while(true){
+      const { url } = yield take('INCREMENT')
+      const result = yield call(fakeFetch, url)
+      yield call(setter, result)
+    }
 }
-
 export default function SampleFetch () {
   const [state, sagaDispatch] = useSaga(rootSaga, null)
 
