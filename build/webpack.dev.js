@@ -9,7 +9,8 @@ module.exports = merge(config, {
 		port:3000,
 		compress:true,// 服务器压缩
 		open:true,// 自动打开浏览器
-		hot:true//热更新
+		hot:true,//热更新
+		// historyApiFallback: true
 	},
 	devtool:'eval-source-map',
 	module: {
