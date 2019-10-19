@@ -9,7 +9,8 @@ const config = {
 	entry: './src/app.tsx', //入口文件
 	output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].js'
+		filename: '[name].js',
+		// publicPath: '/',
     },
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx", ".scss", ".json", ".css"],
@@ -19,13 +20,13 @@ const config = {
 			"@pages": path.join(__dirname, "../src/pages"),
 			"@router": path.join(__dirname, "../src/router"),
 			"@components": path.join(__dirname, "../src/components"),
+			"@common": path.join(__dirname, "../src/common"),
 			"@conf": path.join(__dirname, "../src/conf"),
 			"@redux": path.join(__dirname, "../src/redux"),
 		}
 	},
     module:{
 		rules:[
-			
 			{
 				test: /\.js$/,
 				include:path.join(__dirname,'../src'),

@@ -47,6 +47,7 @@
       "@pages/*": ["src/pages/*"],
       "@router/*": ["src/router/*"],
       "@components/*": ["src/components/*"],
+      "@common/*": ["src/common/*"],
       "@conf/*": ["src/conf/*"],
       "@redux/*": ["src/redux/*"]
     },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */

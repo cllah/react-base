@@ -1,13 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Home from '@/pages/home'
-import Page from '@/pages/page'
-import Page1 from '@/pages/page1'
 import { StoreContext } from 'redux-react-hook'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from './redux/reducers'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sage'
+import Router from '@router/router'
+import './app.scss'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -19,9 +18,7 @@ sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <StoreContext.Provider value={store}>
-    <Home/>
-    <Page/>
-    <Page1/>
+    <Router/>
   </StoreContext.Provider>,
   document.getElementById('app')
 )

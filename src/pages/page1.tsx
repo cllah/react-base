@@ -1,6 +1,7 @@
 import React from 'react'
 import { take, call, takeLatest, put, delay } from 'redux-saga/effects'
 import useSaga from '@/components/customHooks/useSaga'
+import { useHistory } from 'react-router'
 let i = 1
 function * fakeFetch (url) {
   yield put({ type: 'SUCCEEDED' })
@@ -25,9 +26,10 @@ const rootSaga = function * (setter) {
 }
 export default function SampleFetch () {
   const [state, sagaDispatch] = useSaga(rootSaga, null)
+  const history = useHistory()
 
   return (
-    <>
+    <div style={{ background: 'green' }}>
       <button
         onClick={() =>
           sagaDispatch({
@@ -39,6 +41,10 @@ export default function SampleFetch () {
         perform fetch
       </button>
       <div>{state}</div>
-    </>
+      <br/>
+      <div onClick={_ => {
+        history.goBack()
+      }}>back</div>
+    </div>
   )
 };
